@@ -13,7 +13,7 @@ protocol Requestable {
   var api: API { get }
 }
 
-struct Endpoint: Requestable {
+public struct Endpoint: Requestable {
     var api: API
 }
 
@@ -46,6 +46,13 @@ enum API {
       } else {
         return baseUrl().appendingPathComponent(self.path)
       }
+    }
+  }
+  
+  var requestParameters: JSON? {
+    switch self {
+    case .posts:
+      return nil
     }
   }
 }
