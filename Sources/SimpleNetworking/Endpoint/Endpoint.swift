@@ -14,7 +14,12 @@ protocol Requestable {
 }
 
 public struct Endpoint: Requestable {
-   public var api: API
+  
+  public var api: API
+  
+  public init(api: API) {
+    self.api = api
+  }
 }
 
 public enum API {
