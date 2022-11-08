@@ -19,7 +19,7 @@ public final class WebServiceImpl: WebService {
   
   public func requestToNetwork(endpoint: Endpoint, completion: @escaping (NetworkRequestResult) -> Void) {
     
-    guard connectedToNetwork() else {
+    guard checkConnection() else {
       completion(.noInternet)
       return
     }
@@ -50,7 +50,7 @@ public final class WebServiceImpl: WebService {
                       timeoutInterval: 10.0)
   }
   
-  func connectedToNetwork() -> Bool {
+  private func checkConnection() -> Bool {
     
     var zeroAddress = sockaddr_in()
     zeroAddress.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)
