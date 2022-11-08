@@ -11,11 +11,11 @@ public protocol WebService: AnyObject {
    func fetch()
 }
 
-final class WebServiceImpl: WebService {
+public final class WebServiceImpl: WebService {
   
   public init() {}
   
-  func fetch() {
+  public func fetch() {
     print("1111-0 ", #function)
   }
 }
