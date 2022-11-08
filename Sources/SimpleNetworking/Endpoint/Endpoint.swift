@@ -17,7 +17,7 @@ public struct Endpoint: Requestable {
     var api: API
 }
 
-enum API {
+public enum API {
   case posts
   
   func baseUrl() -> URL {
