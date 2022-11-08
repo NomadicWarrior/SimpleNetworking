@@ -16,6 +16,8 @@ public final class WebServiceImpl: WebService {
   public init() {}
   
   public func fetch() {
-    print("1111-0 ", #function)
+    let endpoint = Endpoint(api: .posts)
+    
+    print(endpoint.api.url)
   }
 }
