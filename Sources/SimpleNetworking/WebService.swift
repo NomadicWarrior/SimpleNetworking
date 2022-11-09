@@ -11,6 +11,12 @@ import SystemConfiguration
 public protocol WebService: AnyObject {
   func requestToNetwork(endpoint: Endpoint,
                         completion: @escaping (_ result: NetworkRequestResult) -> Void)
+  
+  func requestToNetwork<T: Codable>(for: T.Type, url: URL, method: HTTPMethod, completion: @escaping (Result<T, Error>) -> Void)
+  
+  func requestToNetwork<T: Codable>(for: T.Type, url: URL, path: String, method: HTTPMethod, completion: @escaping (Result<T, Error>) -> Void)
+  
+  func requestToNetwork<T: Codable>(for: T.Type, url: URL, path: String, method: HTTPMethod, body: JSON, completion: @escaping (Result<T, Error>) -> Void)
 }
 
 public final class WebServiceImpl: WebService {
@@ -44,10 +50,26 @@ public final class WebServiceImpl: WebService {
     }
   }
   
+  public func requestToNetwork<T>(for: T.Type, url: URL, method: HTTPMethod, completion: @escaping (Result<T, Error>) -> Void) where T : Decodable, T : Encodable {
+    
+  }
+
+  public func requestToNetwork<T>(for: T.Type, url: URL, path: String, method: HTTPMethod, completion: @escaping (Result<T, Error>) -> Void) where T : Decodable, T : Encodable {
+    
+  }
+  
+  public func requestToNetwork<T>(for: T.Type, url: URL, path: String, method: HTTPMethod, body: JSON, completion: @escaping (Result<T, Error>) -> Void) where T : Decodable, T : Encodable {
+    
+  }
+  
   private func request(route: Endpoint) throws -> URLRequest {
     return URLRequest(url: route.api.url,
                       cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
                       timeoutInterval: 10.0)
+  }
+  
+  public func parsePosts<T>(data: Data, completion: @escaping ([T]) -> Void) where T : Decodable, T : Encodable {
+    
   }
   
   private func checkConnection() -> Bool {

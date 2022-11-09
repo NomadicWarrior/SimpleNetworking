@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias JSON = [String: Any]
+public typealias JSON = [String: Any]
 
 protocol Requestable {
   var api: API { get }
@@ -62,7 +62,7 @@ public enum API {
   }
 }
 
-enum HTTPMethod: String {
+public enum HTTPMethod: String {
   case get = "GET"
   case post = "POST"
 }
